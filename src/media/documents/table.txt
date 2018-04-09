@@ -1,0 +1,41 @@
+<html>
+<body>
+<table>
+<tr>
+<th>Level</th>
+<th>Subject</th>
+<th>Institution</th>
+<th>Result</th>
+</tr>
+<tr>
+<td>BSc</td>
+<td>Software Engineering</td>
+<td>DIU</td>
+<td>3.50</td>
+</tr>
+
+<tr>
+<td>HSC</td>
+<td>Science</td>
+<td>VNC</td>
+<td>5.00</td>
+</tr>
+
+<tr>
+<td>SSC</td>
+<td>science</td>
+<td>BIS</td>
+<td>5.00</td>
+</tr>
+
+</table>
+
+</body>
+
+</html>
+
+
+
+<li>
+      <a href="{% url 'simple_upload' %}">Simple Upload</a>
+    </li>

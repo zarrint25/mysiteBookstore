@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1 align="center" style="color: dodgerblue )">All Books</h1>
+
+    <div style="width: 25%;float: right">
+    <form class="form" action="{% url 'book-list' %}" method="post">
+        {% csrf_token %}
+        <label>
+            <input type="text" name="q1" value="" placeholder="search">
+        </label>
+        <button type="submit"> search </button>
+
+    </form>
+    </div>
+
+    <table border="1px" cellspacing="0px" cellpadding="5px" align="center">
+        <thead>
+            <tr style="background-color:#cc99ff">
+                <th>Book Name</th>
+                <th>Writer</th>
+                <th>Genre</th>
+                <th>Review</th>
+                <th>Publisher</th>
+                <th>Price</th>
+                <th>File</th>
+                <th>Upload time</th>
+                <th>uploaded by</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+
+            {% if search.exists %}
+                {% for obj in search %}
+                    <tr>
+                        <td>{{obj.book_name}}</td>
+                        <td>{{obj.writer}}</td>
+                        <td>{{obj.genre}}</td>
+                        <td>{{obj.review}}</td>
+                        <td>{{obj.publisher}}</td>
+                        <td>{{obj.price}}</td>
+                        <td>{{obj.document}}</td>
+                        <td>{{obj.uploaded_at}}</td>
+                        <td>{{obj.user}}</td>
+
+
+                    </tr>
+                {% endfor %}
+
+            {% elif object.exists %}
+                {% for obj in object %}
+                    <tr>
+                        <td>{{obj.book_name}}</td>
+                        <td>{{obj.writer}}</td>
+                        <td>{{obj.genre}}</td>
+                        <td>{{obj.review}}</td>
+                        <td>{{obj.publisher}}</td>
+                        <td>{{obj.price}}</td>
+                        <td>{{obj.document}}</td>
+                        <td>{{obj.uploaded_at}}</td>
+                        <td>{{obj.user}}</td>
+
+                    </tr>
+
+                {% empty %}
+
+
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+
+{% endblock %}

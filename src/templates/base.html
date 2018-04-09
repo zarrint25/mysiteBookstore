@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html style="background: #e6eeff;">
+<head>
+    <title>My site bookstore</title>
+</head>
+
+<body style="width:98%;
+	background: #e6eeff;
+    margin:0 auto;
+	padding:15px;
+    ">
+<header style="
+    height:70px;
+    padding-bottom: 5px;
+    padding-right: 15px;
+	color: darkred;
+	clear: left;
+	text-align: right;
+	font-size: 20px;">
+    <h2 style="text-align: center ;">My Site Book Store</h2>
+
+</header>
+<hr>
+{% if user.is_authenticated %}
+
+    <nav style="float: left;
+align: left;
+margin:0;
+width: 140px;
+padding-right: 1cm;
+padding-top: 1cm;
+padding-bottom: 1cm;
+background: #9fbeff;">
+        <ul>
+
+            <li><a href="{% url 'profile' %}"><h3>Profile</h3></a></li>
+            <li><a href="{% url 'book-create' %}"><h3>Add Book</h3></a></li>
+            <li><a href="{% url 'book-list' %}"><h3>My Booklist</h3></a></li>
+            <li><a href="{% url 'book-all-list' %}"><h3>All Books</h3></a></li>
+            <li><a href="{% url 'logout' %}"><h3>LogOut</h3></a></li>
+
+        </ul>
+    </nav>
+
+    <article style="
+
+margin-left: 177px;
+border-left: 1px solid grey;
+padding-left: 1cm;
+overflow:hidden;
+ ">
+
+        <h1 style="text-align: center">USER : {{ user.username }}</h1>
+        {% block content %}
+
+        {% endblock %}
+
+    </article>
+{% else %}
+    <div style="text-align: center">
+    <br><br>
+    <h2><a href="/login">Login</a></h2>
+    <h2><a href="/register">Signup</a></h2>
+    </div>
+{% endif %}
+</body>
+
+</html>
